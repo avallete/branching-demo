@@ -245,3 +245,11 @@ s3_region = "env(S3_REGION)"
 s3_access_key = "env(S3_ACCESS_KEY)"
 # Configures AWS_SECRET_ACCESS_KEY for S3 bucket
 s3_secret_key = "env(S3_SECRET_KEY)"
+
+[remotes.avallete-feat-change-api-settings.api]
+schemas = ["public"]
+# Extra schemas to add to the search_path of every request. `public` is always included.
+extra_search_path = ["public", "extensions"]
+# The maximum number of rows return from a view, table, or stored procedure. Limits payload size
+# for accidental or malicious requests.
+max_rows = 200
