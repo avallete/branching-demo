@@ -23,7 +23,7 @@ jobs:
       - name: Cache Docker images
         uses: ScribeMD/docker-cache@0.5.0
         with:
-          key: docker-${{ runner.os }}-${{ hashFiles(paths) }}
+          key: docker-${{ runner.os }}-${{ hashFiles(github.sha) }}
       - run: npx supabase@latest start
         env:
           SUPABASE_INTERNAL_IMAGE_REGISTRY: ghcr.io
