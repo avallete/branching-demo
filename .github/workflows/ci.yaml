@@ -20,6 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+      - name: Cache Docker images
+        uses: ScribeMD/docker-cache@0.5.0
+        with:
+          key: docker-${{ runner.os }}-${{ hashFiles(paths) }}
       - run: npx supabase@latest start
         env:
           SUPABASE_INTERNAL_IMAGE_REGISTRY: ghcr.io
